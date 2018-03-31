@@ -16,7 +16,7 @@ namespace CaterUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManagerInfo());
+            Application.Run(new 店员界面());
         }
     }
 }

@@ -10,10 +10,17 @@ namespace CaterBll
 {
     public partial class ManagerInfoBll
     {
+        ManagerInfoDal MIDal = new ManagerInfoDal();
+
         public List<ManagerInfo> GetList()
         {
-            ManagerInfoDal MIDal = new ManagerInfoDal();
+            
             return MIDal.GetList();
+        }
+
+        public bool Insert(ManagerInfo mi)
+        {
+            return MIDal.Insert(mi) > 0;
         }
 
     }

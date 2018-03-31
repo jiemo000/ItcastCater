@@ -1,7 +1,9 @@
-﻿using CaterModel;
+﻿using CaterCommon;
+using CaterModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -11,6 +13,10 @@ namespace CaterDal
 {
     public partial class ManagerInfoDal
     {
+        /// <summary>
+        /// 获取结果集合
+        /// </summary>
+        /// <returns>sql语句</returns>
         public List<ManagerInfo> GetList()
         {
             //确定查询语句
@@ -33,5 +39,26 @@ namespace CaterDal
             }
             return list;
         }
+
+        /// <summary>
+        /// 插入数据
+        /// </summary>
+        /// <param name="mi">ManagerInfo类型</param>
+        /// <returns>受影响行数</returns>
+        public int Insert(ManagerInfo mi)
+        {
+            //构造Insert语句
+            string sql = "INSERT INTO ManagerInfo(MNam,MPwd,MType) VALUES(@name,@pwd,@type)";
+            //构造Sql语句的参数
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@name",mi.MNam),
+                new SQLiteParameter("@pwd",Md5Helper.EncryptString(mi.MPwd)),  
+                new SQLiteParameter("@type",mi.MType)
+            };
+            return SqliteHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        
     }
 }
