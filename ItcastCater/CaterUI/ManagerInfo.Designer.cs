@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox_列表 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_店员列表 = new System.Windows.Forms.DataGridView();
             this.groupBox_添加修改 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_密码 = new System.Windows.Forms.TextBox();
@@ -44,14 +44,17 @@
             this.label_密码 = new System.Windows.Forms.Label();
             this.label_用户名 = new System.Windows.Forms.Label();
             this.label_编号 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_列表.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_店员列表)).BeginInit();
             this.groupBox_添加修改.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox_列表
             // 
-            this.groupBox_列表.Controls.Add(this.dataGridView1);
+            this.groupBox_列表.Controls.Add(this.dataGridView_店员列表);
             this.groupBox_列表.Location = new System.Drawing.Point(10, 15);
             this.groupBox_列表.Name = "groupBox_列表";
             this.groupBox_列表.Size = new System.Drawing.Size(269, 241);
@@ -59,14 +62,19 @@
             this.groupBox_列表.TabStop = false;
             this.groupBox_列表.Text = "列表";
             // 
-            // dataGridView1
+            // dataGridView_店员列表
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(257, 212);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_店员列表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_店员列表.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
+            this.dataGridView_店员列表.Location = new System.Drawing.Point(6, 20);
+            this.dataGridView_店员列表.Name = "dataGridView_店员列表";
+            this.dataGridView_店员列表.RowHeadersWidth = 20;
+            this.dataGridView_店员列表.RowTemplate.Height = 23;
+            this.dataGridView_店员列表.Size = new System.Drawing.Size(257, 212);
+            this.dataGridView_店员列表.TabIndex = 0;
             // 
             // groupBox_添加修改
             // 
@@ -207,6 +215,28 @@
             this.label_编号.TabIndex = 0;
             this.label_编号.Text = "编号:";
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MId";
+            this.Column1.HeaderText = "序号";
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MNam";
+            this.Column2.HeaderText = "用户名";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 90;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "MType";
+            this.Column3.HeaderText = "职位";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 85;
+            // 
             // ManagerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -216,8 +246,9 @@
             this.Controls.Add(this.groupBox_列表);
             this.Name = "ManagerInfo";
             this.Text = "店员管理";
+            this.Load += new System.EventHandler(this.ManagerInfo_Load);
             this.groupBox_列表.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_店员列表)).EndInit();
             this.groupBox_添加修改.ResumeLayout(false);
             this.groupBox_添加修改.PerformLayout();
             this.ResumeLayout(false);
@@ -227,7 +258,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox_列表;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_店员列表;
         private System.Windows.Forms.GroupBox groupBox_添加修改;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox_密码;
@@ -242,5 +273,8 @@
         private System.Windows.Forms.Label label_密码;
         private System.Windows.Forms.Label label_用户名;
         private System.Windows.Forms.Label label_编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaterBll;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,5 +18,11 @@ namespace CaterUI
             InitializeComponent();
         }
 
+        private void ManagerInfo_Load(object sender, EventArgs e)
+        {
+            ManagerInfoBll MIBll = new ManagerInfoBll();
+            dataGridView_店员列表.AutoGenerateColumns = false;
+            dataGridView_店员列表.DataSource = MIBll.GetList();
+        }
     }
 }
