@@ -54,5 +54,25 @@ namespace CaterBll
             return MIDal.Delete(mi) > 0;
         }
 
+        public bool GetRowInfo(string name,string pwd)
+        {
+            if (MIDal.GetRowInfo(name) != "")
+            {
+                if(MIDal.GetRowInfo(name) == pwd)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+             else
+            {
+                return false;
+            }
+           
+        }
+
     }
 }
