@@ -19,6 +19,8 @@ namespace CaterUI
             InitializeComponent();
         }
 
+        int pwdnum = 0;
+
         /// <summary>
         /// 退出,关闭整个应用程序
         /// </summary>
@@ -30,28 +32,43 @@ namespace CaterUI
         }
 
         private void button_登录_Click(object sender, EventArgs e)
-        {
-            if(textBox_用户名.Text != "" && textBox_密码.Text != "")
+        { 
+            if (pwdnum < 3)
             {
-                #region 查询并验证
-                ManagerInfoBll MIBll = new ManagerInfoBll();
-                if(MIBll.GetRowInfo(textBox_用户名.Text,textBox_密码.Text))
+                if (textBox_用户名.Text != "" && textBox_密码.Text != "")
                 {
-                    //密码正确
-                    MessageBox.Show("密码正确");
+                    #region 查询并验证
+                    ManagerInfoBll MIBll = new ManagerInfoBll();
+                    int num = MIBll.GetRowInfo(textBox_用户名.Text, textBox_密码.Text);
+                    switch (num)
+                    {
+                        case 0:
+                            MessageBox.Show("账号不正确,请确认账号后再重新输入");
+                            break;
+                        case 1:
+                            MessageBox.Show("账号密码正确");
+                            //这里设置登录窗口隐藏
+                            return;
+                            break;
+                        case 2:
+                            MessageBox.Show("密码错误");
+                            label_密码错误提示.Text = string.Format("密码错误,还剩余{0}次",(2-pwdnum));
+                            pwdnum = pwdnum + 1;
+                            break;
+                    };
+                    #endregion
                 }
                 else
                 {
-                    MessageBox.Show("密码不正确");
-                    label_密码错误提示.Text = "密码错误,剩余3次";
+                    MessageBox.Show("用户名和密码不能为空");
                 }
-
-                #endregion
             }
             else
             {
-                MessageBox.Show("用户名和密码不能为空");
+                MessageBox.Show("错误次数太多,程序关闭");
+                Application.Exit();
             }
+            
         }
     }
 }

@@ -94,20 +94,16 @@ namespace CaterDal
         }
 
 
-        public string GetRowInfo(string name)
+        public DataTable GetRowInfo(string name)
         { 
             //确定查询语
-            string sql = "SELECT MPwd FROM ManagerInfo WHERE MNam = " + "'"+ name + "'";
-            /*SQLiteParameter[] ps =
-            {
-                new SQLiteParameter("@name",name)
-            };
+            string sql = "SELECT MPwd FROM ManagerInfo WHERE MNam =@name";
+            SQLiteParameter[] ps = new SQLiteParameter("@name", name);
 
             //利用sqlitehelper拿到DataTable类型的数据集;
             DataTable dt = SqliteHelper.GetDataTable(sql,ps);
-            */
-            DataTable dt = SqliteHelper.GetDataTable(sql);
-            return dt.ToString();
+
+            return dt;
         }
 
     }

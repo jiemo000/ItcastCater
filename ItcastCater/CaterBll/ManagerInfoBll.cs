@@ -54,24 +54,23 @@ namespace CaterBll
             return MIDal.Delete(mi) > 0;
         }
 
-        public bool GetRowInfo(string name,string pwd)
+        public int GetRowInfo(string name,string pwd)
         {
-            if (MIDal.GetRowInfo(name) != "")
+            if(MIDal.GetRowInfo(name) == null)
             {
-                if(MIDal.GetRowInfo(name) == pwd)
+                return 0;//账号不正确
+            }
+            else
+            {
+                if(MIDal.GetRowInfo(name).ToString() == pwd)
                 {
-                    return true;
+                    return 1;//账号密码正确,允许登录
                 }
                 else
                 {
-                    return false;
+                    return 2;//密码错误
                 }
             }
-             else
-            {
-                return false;
-            }
-           
         }
 
     }
