@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox_列表 = new System.Windows.Forms.GroupBox();
             this.dataGridView_店员列表 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_添加修改 = new System.Windows.Forms.GroupBox();
+            this.label_需要修改的员工编号 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_密码 = new System.Windows.Forms.TextBox();
             this.textBox_用户名 = new System.Windows.Forms.TextBox();
@@ -64,6 +66,15 @@
             // 
             // dataGridView_店员列表
             // 
+            this.dataGridView_店员列表.AllowUserToResizeColumns = false;
+            this.dataGridView_店员列表.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_店员列表.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_店员列表.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_店员列表.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -74,8 +85,10 @@
             this.dataGridView_店员列表.Name = "dataGridView_店员列表";
             this.dataGridView_店员列表.RowHeadersWidth = 20;
             this.dataGridView_店员列表.RowTemplate.Height = 23;
+            this.dataGridView_店员列表.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_店员列表.Size = new System.Drawing.Size(257, 212);
             this.dataGridView_店员列表.TabIndex = 0;
+            this.dataGridView_店员列表.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_店员列表_CellDoubleClick);
             this.dataGridView_店员列表.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView_店员列表_CellFormatting);
             // 
             // Column1
@@ -102,6 +115,7 @@
             // 
             // groupBox_添加修改
             // 
+            this.groupBox_添加修改.Controls.Add(this.label_需要修改的员工编号);
             this.groupBox_添加修改.Controls.Add(this.label1);
             this.groupBox_添加修改.Controls.Add(this.textBox_密码);
             this.groupBox_添加修改.Controls.Add(this.textBox_用户名);
@@ -121,6 +135,17 @@
             this.groupBox_添加修改.TabIndex = 1;
             this.groupBox_添加修改.TabStop = false;
             this.groupBox_添加修改.Text = "添加/修改";
+            // 
+            // label_需要修改的员工编号
+            // 
+            this.label_需要修改的员工编号.AutoSize = true;
+            this.label_需要修改的员工编号.ForeColor = System.Drawing.Color.Red;
+            this.label_需要修改的员工编号.Location = new System.Drawing.Point(61, 13);
+            this.label_需要修改的员工编号.Name = "label_需要修改的员工编号";
+            this.label_需要修改的员工编号.Size = new System.Drawing.Size(119, 12);
+            this.label_需要修改的员工编号.TabIndex = 13;
+            this.label_需要修改的员工编号.Text = "需要修改的员工编号:";
+            this.label_需要修改的员工编号.Visible = false;
             // 
             // label1
             // 
@@ -249,6 +274,8 @@
             this.ClientSize = new System.Drawing.Size(491, 259);
             this.Controls.Add(this.groupBox_添加修改);
             this.Controls.Add(this.groupBox_列表);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "店员界面";
             this.Text = "店员管理";
             this.Load += new System.EventHandler(this.ManagerInfo_Load);
@@ -281,5 +308,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Label label_需要修改的员工编号;
     }
 }

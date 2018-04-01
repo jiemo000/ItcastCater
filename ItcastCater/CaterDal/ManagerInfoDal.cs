@@ -16,7 +16,7 @@ namespace CaterDal
         /// <summary>
         /// 获取结果集合
         /// </summary>
-        /// <returns>sql语句</returns>
+        /// <returns>数据集合</returns>
         public List<ManagerInfo> GetList()
         {
             //确定查询语句
@@ -58,7 +58,41 @@ namespace CaterDal
             };
             return SqliteHelper.ExecuteNonQuery(sql, ps);
         }
-
         
+        /// <summary>
+        /// 修改,更新数据
+        /// </summary>
+        /// <param name="mi">ManagerInfo类型</param>
+        /// <returns>受影响行数</returns>
+        public int Update(ManagerInfo mi)
+        {
+            string sql = "UPDATE ManagerInfo SET MNam = @name,MPwd = @pwd,MType = @type WHERE MId = @id";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@name",mi.MNam),
+                new SQLiteParameter("@pwd",mi.MPwd),
+                new SQLiteParameter("@type",mi.MType),
+                new SQLiteParameter("@id",mi.MId)
+            };
+
+            return SqliteHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        /// <summary>
+        /// 删除一行数据,
+        /// </summary>
+        /// <param name="mi">ManagerInfo类型</param>
+        /// <returns>受影响行数</returns>
+        public int Delete(ManagerInfo mi)
+        {
+            string sql = "DELETE FROM ManagerInfo WHERE MId =@id";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@id",mi.MId)
+            };
+            return SqliteHelper.ExecuteNonQuery(sql, ps);
+        }
+
+
     }
 }
