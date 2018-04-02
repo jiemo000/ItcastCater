@@ -18,10 +18,22 @@ namespace CaterUI
         /* 此界面还有1个Bug,删除某行数据后,序号不能更新,中间缺少删除的行的编号
          *最次的解决方案,可以将编号边长打乱,随机安排,但是 Lable_编号.text 就需要更改*/
 
-        public 店员界面()
+        private 店员界面()
         {
             InitializeComponent();
         }
+
+        private static 店员界面 _form;
+
+        public static 店员界面 Cteate()
+        {
+            if(_form == null)
+            {
+                _form = new 店员界面();
+            }
+            return _form;
+        }
+
 
         /// <summary>
         /// 实例化 BLL逻辑层
@@ -46,7 +58,7 @@ namespace CaterUI
         private void button_取消_Click(object sender, EventArgs e)
         {
             GetInfo();
-            textBox_用户名.Text = "";
+            textBox_账户名.Text = "";
             textBox_密码.Text = "";
             radioButton_店员.Checked = true;
             button_添加.Text = "添加";
@@ -60,7 +72,7 @@ namespace CaterUI
         /// <param name="e"></param>
         private void button_添加_Click(object sender, EventArgs e)
         {
-            if (textBox_用户名.Text == "" || textBox_密码.Text == "")//用户名或密码不能为空
+            if (textBox_账户名.Text == "" || textBox_密码.Text == "")//用户名或密码不能为空
             {
                 MessageBox.Show("用户名或密码不能为空");
             }
@@ -71,7 +83,7 @@ namespace CaterUI
                     #region 添加事件,执行过程
                     ManagerInfo mi = new ManagerInfo()
                     {
-                        MNam = textBox_用户名.Text,
+                        MNam = textBox_账户名.Text,
                         MPwd = textBox_密码.Text,
                         MType = radioButton_店员.Checked ? 1 : 0
                     };
@@ -93,7 +105,7 @@ namespace CaterUI
                     #region 修改事件,执行过程
                     ManagerInfo mi = new ManagerInfo()
                     {
-                        MNam = textBox_用户名.Text,
+                        MNam = textBox_账户名.Text,
                         MPwd = textBox_密码.Text,
                         MType = radioButton_店员.Checked ? 1 : 0,
                         MId = int.Parse(textBox_编号.Text)
@@ -120,7 +132,7 @@ namespace CaterUI
         /// <param name="e"></param>
         private void button_删除选中的店员_Click(object sender, EventArgs e)
         {
-            var rows = dataGridView_店员列表.SelectedCells;
+            var rows = dataGridView_店员管理.SelectedCells;
             //MessageBox.Show(rows[0].Value.ToString());
             ManagerInfo mi = new ManagerInfo()
             {
@@ -163,12 +175,12 @@ namespace CaterUI
             {
                 #region 非第一显示行,不能点击第一显示行
                 //根据单元格,获取所在的行
-                DataGridViewRow row = dataGridView_店员列表.Rows[e.RowIndex];
+                DataGridViewRow row = dataGridView_店员管理.Rows[e.RowIndex];
                 //用行找到,所有列的值,给文本框赋值
 
                 textBox_编号.Text =row.Cells[0].Value.ToString();
                 label_需要修改的员工编号.Visible = true;
-                textBox_用户名.Text = row.Cells[1].Value.ToString();
+                textBox_账户名.Text = row.Cells[1].Value.ToString();
                 textBox_密码.Text = "123456789";//密码不显示,
 
                 if (row.Cells[2].Value.ToString() == "1")
@@ -198,14 +210,19 @@ namespace CaterUI
         {
             //从BLL层拿数据,填充 数据列表
 
-            dataGridView_店员列表.AutoGenerateColumns = false;
+            dataGridView_店员管理.AutoGenerateColumns = false;
 
             List<ManagerInfo> list = new List<ManagerInfo>();
             list = MIBll.GetList();
-            dataGridView_店员列表.DataSource = list;
+            dataGridView_店员管理.DataSource = list;
 
             //编号不能修改,界面初始化 和 添加 后,更新内容,公司员工总数+1
             textBox_编号.Text = (list.Count + 1).ToString();
-        } 
+        }
+
+        private void 店员界面_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _form = null;
+        }
     }
 }

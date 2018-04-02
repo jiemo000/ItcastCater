@@ -54,9 +54,9 @@ namespace CaterBll
             return MIDal.Delete(mi) > 0;
         }
 
-        public int GetRowInfo(string name,string pwd)
+        public int GetRowInfo(string name,string pwd,out int type)
         {
-            string rowvalue = MIDal.GetRowInfo(name);
+            string rowvalue = MIDal.GetRowInfo(name,out type);
             if(rowvalue == null)
             {
                 return 0;//账号不正确

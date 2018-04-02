@@ -47,7 +47,8 @@ namespace CaterUI
                 {
                     #region 查询并验证
                     ManagerInfoBll MIBll = new ManagerInfoBll();
-                    int num = MIBll.GetRowInfo(textBox_用户名.Text, textBox_密码.Text);
+                    int type;
+                    int num = MIBll.GetRowInfo(textBox_用户名.Text, textBox_密码.Text, out type);
                     switch (num)
                     {
                         case 0:
@@ -55,8 +56,9 @@ namespace CaterUI
                             break;
                         case 1:
                             //这里设置登录窗口隐藏,打开新的窗体
-                            Form 主界面 = new Form();
-                            主界面.Show();
+                            主界面 fm = new 主界面();
+                            fm.Tag = type;
+                            fm.Show();
                             this.Hide();
                             break;
                         case 2:
