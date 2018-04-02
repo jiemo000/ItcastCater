@@ -53,7 +53,8 @@ namespace CaterDal
             SQLiteParameter[] ps =
             {
                 new SQLiteParameter("@name",mi.MNam),
-                new SQLiteParameter("@pwd",Md5Helper.EncryptString(mi.MPwd)),  
+                //new SQLiteParameter("@pwd",Md5Helper.EncryptString(mi.MPwd)),
+                new SQLiteParameter("@pwd",mi.MPwd),
                 new SQLiteParameter("@type",mi.MType)
             };
             return SqliteHelper.ExecuteNonQuery(sql, ps);
@@ -94,16 +95,23 @@ namespace CaterDal
         }
 
 
-        public DataTable GetRowInfo(string name)
+        public string GetRowInfo(string name)
         { 
             //确定查询语
             string sql = "SELECT MPwd FROM ManagerInfo WHERE MNam =@name";
-            SQLiteParameter[] ps = new SQLiteParameter("@name", name);
+            SQLiteParameter ps = new SQLiteParameter("@name", name);
 
             //利用sqlitehelper拿到DataTable类型的数据集;
             DataTable dt = SqliteHelper.GetDataTable(sql,ps);
-
-            return dt;
+            
+            if(dt.Rows.Count > 0)//确认dt.rows是否为空,
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

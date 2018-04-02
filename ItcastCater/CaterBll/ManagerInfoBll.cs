@@ -56,13 +56,14 @@ namespace CaterBll
 
         public int GetRowInfo(string name,string pwd)
         {
-            if(MIDal.GetRowInfo(name) == null)
+            string rowvalue = MIDal.GetRowInfo(name);
+            if(rowvalue == null)
             {
                 return 0;//账号不正确
             }
             else
             {
-                if(MIDal.GetRowInfo(name).ToString() == pwd)
+                if(rowvalue == pwd)
                 {
                     return 1;//账号密码正确,允许登录
                 }

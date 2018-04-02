@@ -19,6 +19,9 @@ namespace CaterUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 登录时错误验证的次数限制
+        /// </summary>
         int pwdnum = 0;
 
         /// <summary>
@@ -31,9 +34,14 @@ namespace CaterUI
             Application.Exit();
         }
 
+        /// <summary>
+        /// 登录验证
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_登录_Click(object sender, EventArgs e)
         { 
-            if (pwdnum < 3)
+            if (pwdnum < 2)
             {
                 if (textBox_用户名.Text != "" && textBox_密码.Text != "")
                 {
@@ -46,9 +54,10 @@ namespace CaterUI
                             MessageBox.Show("账号不正确,请确认账号后再重新输入");
                             break;
                         case 1:
-                            MessageBox.Show("账号密码正确");
-                            //这里设置登录窗口隐藏
-                            return;
+                            //这里设置登录窗口隐藏,打开新的窗体
+                            Form 主界面 = new Form();
+                            主界面.Show();
+                            this.Hide();
                             break;
                         case 2:
                             MessageBox.Show("密码错误");
