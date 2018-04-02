@@ -36,5 +36,32 @@ namespace CaterDal
             }
             return list;
         }
+        /// <summary>
+        ///添加数据
+        /// </summary>
+        /// <param name="mti"></param>
+        /// <returns></returns>
+        public int Insert(MemberTypeInfo mti)
+        {
+            string sql = "INSERT INTO MemberTypeInfo(MTitle,MDiscount,MIsdelete) VALUES(@title,@discount,@isdelete)";
+            //构造Sql语句的参数
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@title",mti.MTitle),
+                new SQLiteParameter("@discount",mti.MDiscount),
+                new SQLiteParameter("@didelete",mti.MIsdelete)
+            };
+            return SqliteHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        public int Delete(MemberTypeInfo mti)
+        {
+            string sql = "DELETE FROM MemberTypeInfo WHERE MTitle =@title";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@title",mti.MTitle)
+            };
+            return SqliteHelper.ExecuteNonQuery(sql, ps);
+        }
     }
 }

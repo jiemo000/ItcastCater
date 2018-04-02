@@ -16,5 +16,15 @@ namespace CaterBll
         {
             return MTIdal.GetList();
         }
+
+        public bool Insert(MemberTypeInfo mti)
+        {
+            return MTIdal.Insert(mti) > 0;
+        }
+
+        public bool Delete(MemberTypeInfo mti)
+        {
+            return MTIdal.Delete(mti) > 0;
+        }
     }
 }

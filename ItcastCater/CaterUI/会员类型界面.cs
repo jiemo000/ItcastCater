@@ -45,7 +45,29 @@ namespace CaterUI
 
         private void button_添加_Click(object sender, EventArgs e)
         {
-
+            if (textBox_折扣.Text == "数字")
+            {
+                MemberTypeInfo mti = new MemberTypeInfo()
+                {
+                    MTitle = textBox_标题.Text,
+                    MDiscount = decimal.Parse(textBox_折扣.Text),
+                    MIsdelete = false
+                };
+                if(MTIBll.Insert(mti))
+                {
+                    GetInfo();
+                    button_取消.PerformClick();
+                }
+                else
+                {
+                    button_取消.PerformClick();
+                    MessageBox.Show("添加不成功,请重试");
+                }
+            }
+            else
+            {
+                MessageBox.Show("折扣必须是数字");
+            }
         }
 
         private void button_取消_Click(object sender, EventArgs e)
@@ -57,7 +79,19 @@ namespace CaterUI
 
         private void button_删除选中的会员_Click(object sender, EventArgs e)
         {
-
+            var rows = dataGridView_会员类型管理.SelectedCells;
+            MemberTypeInfo mti = new MemberTypeInfo()
+            {
+                MTitle = rows[0].Value.ToString()
+            };
+            if(MTIBll.Delete(mti))
+            {
+                GetInfo();
+            }
+            else
+            {
+                MessageBox.Show("删除错误,请重试");
+            }
         }
     }
 }
