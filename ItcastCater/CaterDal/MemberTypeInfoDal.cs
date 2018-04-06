@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,19 +48,20 @@ namespace CaterDal
             //构造Sql语句的参数
             SQLiteParameter[] ps =
             {
+                //new SQLiteParameter("@id",mti.MId),
                 new SQLiteParameter("@title",mti.MTitle),
                 new SQLiteParameter("@discount",mti.MDiscount),
-                new SQLiteParameter("@didelete",mti.MIsdelete)
+                new SQLiteParameter("@isdelete",mti.MIsdelete)
             };
             return SqliteHelper.ExecuteNonQuery(sql, ps);
         }
 
         public int Delete(MemberTypeInfo mti)
         {
-            string sql = "DELETE FROM MemberTypeInfo WHERE MTitle =@title";
+            string sql = "DELETE FROM MemberTypeInfo WHERE MId =@id";
             SQLiteParameter[] ps =
             {
-                new SQLiteParameter("@title",mti.MTitle)
+                new SQLiteParameter("@id",mti.MId)
             };
             return SqliteHelper.ExecuteNonQuery(sql, ps);
         }

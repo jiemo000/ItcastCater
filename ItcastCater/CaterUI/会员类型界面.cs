@@ -45,29 +45,37 @@ namespace CaterUI
 
         private void button_添加_Click(object sender, EventArgs e)
         {
-            if (textBox_折扣.Text == "数字")
+            if (textBox_标题.Text != "" && textBox_折扣.Text != "")
             {
-                MemberTypeInfo mti = new MemberTypeInfo()
+                try
                 {
-                    MTitle = textBox_标题.Text,
-                    MDiscount = decimal.Parse(textBox_折扣.Text),
-                    MIsdelete = false
-                };
-                if(MTIBll.Insert(mti))
-                {
-                    GetInfo();
-                    button_取消.PerformClick();
+                    MemberTypeInfo mti = new MemberTypeInfo()
+                    {
+                        MTitle = textBox_标题.Text,
+                        MDiscount = decimal.Parse(textBox_折扣.Text),
+                        MIsdelete = false
+                    };
+                    if (MTIBll.Insert(mti))
+                    {
+                        GetInfo();
+                        button_取消.PerformClick();
+                    }
+                    else
+                    {
+                        button_取消.PerformClick();
+                        MessageBox.Show("添加不成功,请重试");
+                    }
                 }
-                else
+                catch (FormatException)
                 {
-                    button_取消.PerformClick();
-                    MessageBox.Show("添加不成功,请重试");
+                    MessageBox.Show("折扣必须是数字");
                 }
             }
             else
             {
-                MessageBox.Show("折扣必须是数字");
+                MessageBox.Show("文本框不能为空");
             }
+           
         }
 
         private void button_取消_Click(object sender, EventArgs e)
@@ -77,12 +85,19 @@ namespace CaterUI
             textBox_折扣.Text = "";
         }
 
+        /// <summary>
+        /// 重要:重要:重要:
+        /// 真实删除操作,后面版本需要逻辑删除,textbox_标题,需要改成下拉列表框,指定会员类型,删除后隐藏,使用逻辑删除
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_删除选中的会员_Click(object sender, EventArgs e)
         {
+            
             var rows = dataGridView_会员类型管理.SelectedCells;
             MemberTypeInfo mti = new MemberTypeInfo()
             {
-                MTitle = rows[0].Value.ToString()
+                MId = Convert.ToInt32(rows[0].Value)
             };
             if(MTIBll.Delete(mti))
             {
