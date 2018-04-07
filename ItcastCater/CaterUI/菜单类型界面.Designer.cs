@@ -1,6 +1,6 @@
 ﻿namespace CaterUI
 {
-    partial class 会员类型界面
+    partial class 菜单类型界面
     {
         /// <summary>
         /// Required designer variable.
@@ -29,45 +29,51 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.label_菜系 = new System.Windows.Forms.Label();
             this.groupBox_添加修改 = new System.Windows.Forms.GroupBox();
             this.label_需要修改的员工编号 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox_折扣 = new System.Windows.Forms.TextBox();
-            this.textBox_标题 = new System.Windows.Forms.TextBox();
+            this.textBox_菜系 = new System.Windows.Forms.TextBox();
             this.textBox_编号 = new System.Windows.Forms.TextBox();
-            this.button_删除选中的会员 = new System.Windows.Forms.Button();
+            this.button_删除选中的菜系 = new System.Windows.Forms.Button();
             this.button_取消 = new System.Windows.Forms.Button();
             this.button_添加 = new System.Windows.Forms.Button();
             this.label_折扣 = new System.Windows.Forms.Label();
-            this.label_标题 = new System.Windows.Forms.Label();
             this.label_编号 = new System.Windows.Forms.Label();
             this.groupBox_列表 = new System.Windows.Forms.GroupBox();
-            this.dataGridView_会员类型管理 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_菜单类型管理 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_添加修改.SuspendLayout();
             this.groupBox_列表.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_会员类型管理)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_菜单类型管理)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label_菜系
+            // 
+            this.label_菜系.AutoSize = true;
+            this.label_菜系.Location = new System.Drawing.Point(16, 82);
+            this.label_菜系.Name = "label_菜系";
+            this.label_菜系.Size = new System.Drawing.Size(35, 12);
+            this.label_菜系.TabIndex = 1;
+            this.label_菜系.Text = "菜系:";
             // 
             // groupBox_添加修改
             // 
             this.groupBox_添加修改.Controls.Add(this.label_需要修改的员工编号);
             this.groupBox_添加修改.Controls.Add(this.label1);
-            this.groupBox_添加修改.Controls.Add(this.textBox_折扣);
-            this.groupBox_添加修改.Controls.Add(this.textBox_标题);
+            this.groupBox_添加修改.Controls.Add(this.textBox_菜系);
             this.groupBox_添加修改.Controls.Add(this.textBox_编号);
-            this.groupBox_添加修改.Controls.Add(this.button_删除选中的会员);
+            this.groupBox_添加修改.Controls.Add(this.button_删除选中的菜系);
             this.groupBox_添加修改.Controls.Add(this.button_取消);
             this.groupBox_添加修改.Controls.Add(this.button_添加);
             this.groupBox_添加修改.Controls.Add(this.label_折扣);
-            this.groupBox_添加修改.Controls.Add(this.label_标题);
+            this.groupBox_添加修改.Controls.Add(this.label_菜系);
             this.groupBox_添加修改.Controls.Add(this.label_编号);
-            this.groupBox_添加修改.Location = new System.Drawing.Point(287, 3);
+            this.groupBox_添加修改.Location = new System.Drawing.Point(289, 8);
             this.groupBox_添加修改.Name = "groupBox_添加修改";
             this.groupBox_添加修改.Size = new System.Drawing.Size(191, 241);
-            this.groupBox_添加修改.TabIndex = 3;
+            this.groupBox_添加修改.TabIndex = 5;
             this.groupBox_添加修改.TabStop = false;
             this.groupBox_添加修改.Text = "添加/修改";
             // 
@@ -85,25 +91,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(15, 177);
+            this.label1.Location = new System.Drawing.Point(26, 177);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 12);
+            this.label1.Size = new System.Drawing.Size(137, 12);
             this.label1.TabIndex = 12;
-            this.label1.Text = "说明:选中表格某行,删除会员";
+            this.label1.Text = "说明:选中表格某行,删除";
             // 
-            // textBox_折扣
+            // textBox_菜系
             // 
-            this.textBox_折扣.Location = new System.Drawing.Point(63, 89);
-            this.textBox_折扣.Name = "textBox_折扣";
-            this.textBox_折扣.Size = new System.Drawing.Size(100, 21);
-            this.textBox_折扣.TabIndex = 11;
-            // 
-            // textBox_标题
-            // 
-            this.textBox_标题.Location = new System.Drawing.Point(63, 57);
-            this.textBox_标题.Name = "textBox_标题";
-            this.textBox_标题.Size = new System.Drawing.Size(100, 21);
-            this.textBox_标题.TabIndex = 10;
+            this.textBox_菜系.Location = new System.Drawing.Point(63, 77);
+            this.textBox_菜系.Name = "textBox_菜系";
+            this.textBox_菜系.Size = new System.Drawing.Size(100, 21);
+            this.textBox_菜系.TabIndex = 10;
             // 
             // textBox_编号
             // 
@@ -113,19 +112,19 @@
             this.textBox_编号.Size = new System.Drawing.Size(100, 21);
             this.textBox_编号.TabIndex = 9;
             // 
-            // button_删除选中的会员
+            // button_删除选中的菜系
             // 
-            this.button_删除选中的会员.Location = new System.Drawing.Point(18, 199);
-            this.button_删除选中的会员.Name = "button_删除选中的会员";
-            this.button_删除选中的会员.Size = new System.Drawing.Size(154, 36);
-            this.button_删除选中的会员.TabIndex = 7;
-            this.button_删除选中的会员.Text = "删除选中的会员";
-            this.button_删除选中的会员.UseVisualStyleBackColor = true;
-            this.button_删除选中的会员.Click += new System.EventHandler(this.button_删除选中的会员_Click);
+            this.button_删除选中的菜系.Location = new System.Drawing.Point(18, 199);
+            this.button_删除选中的菜系.Name = "button_删除选中的菜系";
+            this.button_删除选中的菜系.Size = new System.Drawing.Size(154, 36);
+            this.button_删除选中的菜系.TabIndex = 7;
+            this.button_删除选中的菜系.Text = "删除选中的菜系";
+            this.button_删除选中的菜系.UseVisualStyleBackColor = true;
+            this.button_删除选中的菜系.Click += new System.EventHandler(this.button_删除选中的菜系_Click);
             // 
             // button_取消
             // 
-            this.button_取消.Location = new System.Drawing.Point(113, 129);
+            this.button_取消.Location = new System.Drawing.Point(113, 121);
             this.button_取消.Name = "button_取消";
             this.button_取消.Size = new System.Drawing.Size(59, 34);
             this.button_取消.TabIndex = 6;
@@ -135,7 +134,7 @@
             // 
             // button_添加
             // 
-            this.button_添加.Location = new System.Drawing.Point(18, 129);
+            this.button_添加.Location = new System.Drawing.Point(17, 121);
             this.button_添加.Name = "button_添加";
             this.button_添加.Size = new System.Drawing.Size(59, 34);
             this.button_添加.TabIndex = 5;
@@ -148,18 +147,8 @@
             this.label_折扣.AutoSize = true;
             this.label_折扣.Location = new System.Drawing.Point(16, 95);
             this.label_折扣.Name = "label_折扣";
-            this.label_折扣.Size = new System.Drawing.Size(35, 12);
+            this.label_折扣.Size = new System.Drawing.Size(0, 12);
             this.label_折扣.TabIndex = 2;
-            this.label_折扣.Text = "折扣:";
-            // 
-            // label_标题
-            // 
-            this.label_标题.AutoSize = true;
-            this.label_标题.Location = new System.Drawing.Point(16, 62);
-            this.label_标题.Name = "label_标题";
-            this.label_标题.Size = new System.Drawing.Size(35, 12);
-            this.label_标题.TabIndex = 1;
-            this.label_标题.Text = "标题:";
             // 
             // label_编号
             // 
@@ -172,98 +161,88 @@
             // 
             // groupBox_列表
             // 
-            this.groupBox_列表.Controls.Add(this.dataGridView_会员类型管理);
-            this.groupBox_列表.Location = new System.Drawing.Point(7, 3);
+            this.groupBox_列表.Controls.Add(this.dataGridView_菜单类型管理);
+            this.groupBox_列表.Location = new System.Drawing.Point(9, 8);
             this.groupBox_列表.Name = "groupBox_列表";
             this.groupBox_列表.Size = new System.Drawing.Size(269, 241);
-            this.groupBox_列表.TabIndex = 2;
+            this.groupBox_列表.TabIndex = 4;
             this.groupBox_列表.TabStop = false;
             this.groupBox_列表.Text = "列表";
             // 
-            // dataGridView_会员类型管理
+            // dataGridView_菜单类型管理
             // 
-            this.dataGridView_会员类型管理.AllowUserToResizeColumns = false;
-            this.dataGridView_会员类型管理.AllowUserToResizeRows = false;
+            this.dataGridView_菜单类型管理.AllowUserToResizeColumns = false;
+            this.dataGridView_菜单类型管理.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_会员类型管理.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView_会员类型管理.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_会员类型管理.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_菜单类型管理.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_菜单类型管理.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_菜单类型管理.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView_会员类型管理.Location = new System.Drawing.Point(6, 20);
-            this.dataGridView_会员类型管理.MultiSelect = false;
-            this.dataGridView_会员类型管理.Name = "dataGridView_会员类型管理";
-            this.dataGridView_会员类型管理.RowHeadersWidth = 20;
-            this.dataGridView_会员类型管理.RowTemplate.Height = 23;
-            this.dataGridView_会员类型管理.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_会员类型管理.Size = new System.Drawing.Size(257, 212);
-            this.dataGridView_会员类型管理.TabIndex = 0;
+            this.Column2});
+            this.dataGridView_菜单类型管理.Location = new System.Drawing.Point(6, 20);
+            this.dataGridView_菜单类型管理.MultiSelect = false;
+            this.dataGridView_菜单类型管理.Name = "dataGridView_菜单类型管理";
+            this.dataGridView_菜单类型管理.RowHeadersWidth = 20;
+            this.dataGridView_菜单类型管理.RowTemplate.Height = 23;
+            this.dataGridView_菜单类型管理.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_菜单类型管理.Size = new System.Drawing.Size(257, 212);
+            this.dataGridView_菜单类型管理.TabIndex = 0;
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "MId";
+            this.Column1.DataPropertyName = "DId";
             this.Column1.HeaderText = "编号";
             this.Column1.Name = "Column1";
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 60;
+            this.Column1.Width = 80;
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "MTitle";
-            this.Column2.HeaderText = "会员类型";
+            this.Column2.DataPropertyName = "DTitle";
+            this.Column2.HeaderText = "菜系类型";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
+            this.Column2.Width = 160;
             // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "MDiscount";
-            this.Column3.HeaderText = "折扣";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 85;
-            // 
-            // 会员类型界面
+            // 菜单类型界面
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 257);
+            this.ClientSize = new System.Drawing.Size(487, 255);
             this.Controls.Add(this.groupBox_添加修改);
             this.Controls.Add(this.groupBox_列表);
-            this.Name = "会员类型界面";
+            this.Name = "菜单类型界面";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "会员类型界面";
-            this.Load += new System.EventHandler(this.会员类型界面_Load);
+            this.Text = "菜单类型界面";
+            this.Load += new System.EventHandler(this.菜单类型界面_Load);
             this.groupBox_添加修改.ResumeLayout(false);
             this.groupBox_添加修改.PerformLayout();
             this.groupBox_列表.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_会员类型管理)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_菜单类型管理)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Label label_菜系;
         private System.Windows.Forms.GroupBox groupBox_添加修改;
         private System.Windows.Forms.Label label_需要修改的员工编号;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox_折扣;
-        private System.Windows.Forms.TextBox textBox_标题;
+        private System.Windows.Forms.TextBox textBox_菜系;
         private System.Windows.Forms.TextBox textBox_编号;
-        private System.Windows.Forms.Button button_删除选中的会员;
+        private System.Windows.Forms.Button button_删除选中的菜系;
         private System.Windows.Forms.Button button_取消;
         private System.Windows.Forms.Button button_添加;
         private System.Windows.Forms.Label label_折扣;
-        private System.Windows.Forms.Label label_标题;
         private System.Windows.Forms.Label label_编号;
         private System.Windows.Forms.GroupBox groupBox_列表;
-        private System.Windows.Forms.DataGridView dataGridView_会员类型管理;
+        private System.Windows.Forms.DataGridView dataGridView_菜单类型管理;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

@@ -79,6 +79,18 @@
     <Compile Include="登录界面.Designer.cs">
       <DependentUpon>登录界面.cs</DependentUpon>
     </Compile>
+    <Compile Include="菜单界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="菜单界面.Designer.cs">
+      <DependentUpon>菜单界面.cs</DependentUpon>
+    </Compile>
+    <Compile Include="菜单类型界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="菜单类型界面.Designer.cs">
+      <DependentUpon>菜单类型界面.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="主界面.resx">
       <DependentUpon>主界面.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +114,12 @@
     </Compile>
     <EmbeddedResource Include="登录界面.resx">
       <DependentUpon>登录界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="菜单界面.resx">
+      <DependentUpon>菜单界面.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="菜单类型界面.resx">
+      <DependentUpon>菜单类型界面.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

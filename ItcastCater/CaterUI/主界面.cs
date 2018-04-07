@@ -49,5 +49,12 @@ namespace CaterUI
             }
             
         }
+
+        private void Menu_菜单管理_Click(object sender, EventArgs e)
+        {
+            菜单界面 fm = 菜单界面.Cteate();
+            fm.Show();
+            fm.Focus();
+        }
     }
 }

@@ -40,8 +40,7 @@ namespace CaterUI
         private void button_添加_类型管理_Click(object sender, EventArgs e)
         {
             会员类型界面 fm = new 会员类型界面();
-            fm.Show();
-            fm.Focus();
+            fm.ShowDialog();
         }
 
         private void 会员界面_Load(object sender, EventArgs e)

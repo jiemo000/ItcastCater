@@ -82,6 +82,7 @@
             this.Menu_菜单管理.Name = "Menu_菜单管理";
             this.Menu_菜单管理.Size = new System.Drawing.Size(76, 68);
             this.Menu_菜单管理.Text = "toolStripMenuItem1";
+            this.Menu_菜单管理.Click += new System.EventHandler(this.Menu_菜单管理_Click);
             // 
             // Menu_餐桌管理
             // 

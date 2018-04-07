@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DishInfoBll.cs" />
+    <Compile Include="DishTypeInfoBll.cs" />
     <Compile Include="ManagerInfoBll.cs" />
     <Compile Include="MemberInfoBll.cs" />
     <Compile Include="MenberTypeInfoBll.cs" />
